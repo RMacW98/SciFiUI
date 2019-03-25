@@ -1,11 +1,12 @@
 package ie.tudublin;
 
 import processing.core.PApplet;
+import java.util.ArrayList;
 
 public class UI extends PApplet
 {
-    Button b;
-    MovingCircle mc;
+    public ArrayList<Meter> meters = new ArrayList<Meter>(); 
+    SteeringWheel sw;
 
     boolean[] keys = new boolean[1024];
 
@@ -16,7 +17,7 @@ public class UI extends PApplet
     
     public void keyReleased()
     {
-        keys[keyCode] = true;
+        keys[keyCode] = false;
     }
 
     public boolean checkKey(int c)
@@ -34,22 +35,22 @@ public class UI extends PApplet
 
     public void setup()
     {
-        b = new Button(this, 50, 50, 100, 50, "I am a button");
-        mc = new MovingCircle(this, width / 2, height / 2, 50);
+        meters.add(new SpeedMeter(this, (3 * width) / 8, (3 * height) / 7, 100));
+        meters.add(new RevMeter(this, (5 * width) / 8, (3 * height) / 7, 100));
+        sw = new SteeringWheel(this, width / 2, (2 * height) / 3, 175);
     }
 
     public void draw()
     {
-        background(0);
-        b.render();
-
-        mc.update();
-        mc.render();
-
-        if (checkKey(LEFT))
+        background(0);       
+        for(int i= meters.size() - 1; i >= 0; i--)
         {
-            System.out.println("Left arrow key pressed");
-        }
+            Meter m = meters.get(i);
+            m.render();
+            m.update();
+        }  
+        sw.render();
+        sw.update();
     }
 }
 
