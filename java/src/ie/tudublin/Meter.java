@@ -3,7 +3,7 @@ package ie.tudublin;
 import processing.core.PApplet;
 import processing.core.PVector; 
 
-public class Meter
+public abstract class Meter
 {
     UI ui;
     public float x;
@@ -26,13 +26,14 @@ public class Meter
     public void render()
     {
         float radius = diameter / 2;
+        
         ui.pushMatrix();
         ui.translate(pos.x, pos.y);
+        ui.ellipse(0, 0, diameter, diameter);d
         ui.rotate(rotation);
 
         ui.stroke(255);
         ui.noFill();
-        ui.ellipse(0, 0, diameter, diameter);
 
         ui.line(0, 0, -radius, 0);
         ui.popMatrix();

@@ -47,14 +47,36 @@ public class SteeringWheel
         forward.x = (float) Math.sin(rotation);
         forward.y = - (float) Math.cos(rotation);
 
-        if (ui.checkKey('a'))
+        // If statement to check if wheel rotates more than twice
+        if (rotation < 6.0f && rotation > -6.0f)
         {
-            rotation -= 0.07f;  
-        }   
-        
-        if (ui.checkKey('d'))
+            //Centre steering wheel
+            if (rotation > 0.0f && !ui.checkKey('a'))
+            {
+                rotation -= 0.04f;
+            }
+
+            if (rotation < 0.0f && !ui.checkKey('d'))
+            {
+                rotation += 0.04f;
+            }  
+
+            //Turn wheel
+            if (ui.checkKey('a'))
+            {
+                rotation -= 0.11f;  
+            }   
+            
+            if (ui.checkKey('d'))
+            {
+                rotation += 0.11f;  
+            } 
+        }
+        else if (rotation >= 6.0f)  //Stop glitches and freezing wheel
         {
-            rotation += 0.07f;  
-        } 
+            rotation = 5.99f;
+        } else {
+            rotation = -5.99f;
+        }
     }
 }

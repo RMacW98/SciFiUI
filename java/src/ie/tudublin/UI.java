@@ -7,6 +7,7 @@ public class UI extends PApplet
 {
     public ArrayList<Meter> meters = new ArrayList<Meter>(); 
     SteeringWheel sw;
+    AlienPad ap;
 
     boolean[] keys = new boolean[1024];
 
@@ -38,6 +39,7 @@ public class UI extends PApplet
         meters.add(new SpeedMeter(this, (3 * width) / 8, (3 * height) / 7, 100));
         meters.add(new RevMeter(this, (5 * width) / 8, (3 * height) / 7, 100));
         sw = new SteeringWheel(this, width / 2, (2 * height) / 3, 175);
+        ap = new AlienPad(this, (4 * width) / 5 , (4 * height) / 5, 100, 100);
     }
 
     public void draw()
@@ -51,6 +53,9 @@ public class UI extends PApplet
         }  
         sw.render();
         sw.update();
+        ap.render();
+        ap.update();
+
     }
 }
 

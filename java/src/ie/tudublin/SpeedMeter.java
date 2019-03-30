@@ -21,12 +21,14 @@ public class SpeedMeter extends Meter
             rotation -= 0.05f;
         }
 
-        if (rotation < 3.14)
+        if (rotation < 3.14f)
         {
             if (ui.checkKey('w'))
             {
                 rotation += 0.07f;  
             }
-        }        
+        } else {
+            rotation = 3.14f;
+        }     
     }
 }
