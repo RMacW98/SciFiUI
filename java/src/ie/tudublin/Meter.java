@@ -12,6 +12,7 @@ public abstract class Meter
     public PVector pos;
     public PVector forward;
     public float rotation;
+    float[] angles = { 180 / 8, 180 / 8, 180 / 8, 180 / 8, 180 / 8, 180 / 8, 180 / 8, 180 / 8 };
 
     public Meter(UI ui, float x, float y, float diameter)
     {
@@ -29,7 +30,7 @@ public abstract class Meter
         
         ui.pushMatrix();
         ui.translate(pos.x, pos.y);
-        ui.ellipse(0, 0, diameter, diameter);d
+        ui.ellipse(0, 0, diameter, diameter);
         ui.rotate(rotation);
 
         ui.stroke(255);
