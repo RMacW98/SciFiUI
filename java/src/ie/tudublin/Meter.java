@@ -30,6 +30,7 @@ public abstract class Meter
         
         ui.pushMatrix();
         ui.translate(pos.x, pos.y);
+        ui.fill(0);
         ui.ellipse(0, 0, diameter, diameter);
         ui.rotate(rotation);
 
