@@ -1,16 +1,17 @@
 package ie.tudublin;
 
-
-
-public class Stars
+public abstract class Planet
 {
     public float x;
     public float y;
+    public float sx;
+    public float sy;
     public float z;
+    public float r;
     public float speed;
     UI ui;
 
-    public Stars(UI ui)
+    public Planet(UI ui)
     {
         this.ui = ui;
         x = ui.random( ui.width/2, ui.width/2);
@@ -21,7 +22,7 @@ public class Stars
 
     public void update() 
     {
-        z = z - ui.speed;
+        z = z - (float) (ui.speed * .5);
 
         if (z < 1) {
             z = ui.width/2;
@@ -30,15 +31,19 @@ public class Stars
         }
     }
 
+    public void colour()
+    {
+        
+    }
+
     public void show() 
     {
-        ui.fill(255);
         ui.noStroke();
 
-        float sx = ui.map(x / z, 0, 1, 0, ui.width/2);
-        float sy = ui.map(y / z, 0, 1, 0, ui.height/2);
+        sx = ui.map(x / z, 0, 1, 0, ui.width/2);
+        sy = ui.map(y / z, 0, 1, 0, ui.height / 2); 
 
-        float r = ui.map(z, 0, ui.width/2, 5, 0);
+        r = ui.map(z, 0, ui.width/2, 100, 0);
         ui.ellipse(sx, sy, r, r);
         
         if (ui.checkKey('a'))
@@ -63,7 +68,7 @@ public class Stars
 
         if (ui.checkKey(' '))
         {
-            ui.speed = ui.speed * 1.002f;
+            ui.speed = ui.speed * 1.001f;
         } 
     }
 }

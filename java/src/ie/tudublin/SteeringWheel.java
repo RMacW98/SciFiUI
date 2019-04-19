@@ -1,6 +1,5 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
 import processing.core.PVector; 
 
 public class SteeringWheel
@@ -25,18 +24,21 @@ public class SteeringWheel
 
     public void render()
     {
-        float radius = diameter / 2;
+        float radius = (diameter / 2) + 10;
         ui.pushMatrix();
         ui.translate(pos.x, pos.y);
         ui.rotate(rotation);
 
+        ui.strokeWeight(7);
         ui.stroke(255);
         ui.noFill();
         ui.ellipse(0, 0, diameter, diameter);
-        ui.ellipse(0, 0, diameter - 5, diameter - 5);
+
 
         ui.line(radius, 0, -radius, 0);
-        ui.line(0, radius, 0, 0);
+        ui.line(radius, 0, radius, -30);
+        ui.line(-radius, 0, -radius, -30);
+        ui.line(0, diameter / 2, 0, 0);
         ui.popMatrix();
     }
 
@@ -48,7 +50,7 @@ public class SteeringWheel
         forward.y = - (float) Math.cos(rotation);
 
         // If statement to check if wheel rotates more than twice
-        if (rotation < 6.0f && rotation > -6.0f)
+        if (rotation < 1f && rotation > -1f)
         {
             //Centre steering wheel
             if (rotation > 0.0f && !ui.checkKey('a'))
@@ -72,11 +74,19 @@ public class SteeringWheel
                 rotation += 0.11f;  
             } 
         }
-        else if (rotation >= 6.0f)  //Stop glitches and freezing wheel
+        else if (rotation >= 1f)  //Stop steering whell frome moving
         {
-            rotation = 5.99f;
+            rotation = 1f;
+            if (!ui.checkKey('d'))
+            {
+                rotation -= 0.04f;
+            }
         } else {
-            rotation = -5.99f;
+            rotation = -1f;
+            if (!ui.checkKey('a'))
+            {
+                rotation += 0.04f;
+            } 
         }
     }
 }

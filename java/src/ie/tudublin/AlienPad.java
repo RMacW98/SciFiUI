@@ -1,8 +1,5 @@
 package ie.tudublin;
 
-import java.util.Random;
-
-import processing.core.PApplet;
 
 public class AlienPad
 {
@@ -31,8 +28,7 @@ public class AlienPad
 
     public void update()
     {
-		int counter = 0;
-        int numSquares = (int) 35;
+        int numSquares = 35;
         float spacing = width / numSquares;
         float tempX = x;
         float tempY = y;
@@ -45,7 +41,6 @@ public class AlienPad
 				ui.fill(ui.random(255));
 				ui.rect(x, y, spacing, spacing);
 				y = y + spacing;
-				counter++;
 			}
 			
 			x = x + spacing;

@@ -1,6 +1,5 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
 
 public class CockPit
 {
@@ -20,24 +19,22 @@ public class CockPit
         ui.pushMatrix();
         ui.stroke(0, 0, 155);
 
-        // //Sides of cockpit
-        // ui.line((1 * width) / 10, height, (4 * width) / 10, (height / 2) + 40);
-        // ui.line((9 * width) / 10, height, (6 * width) / 10, (height / 2) + 40);
-
-        // //Centre of cockpit
-        // ui.line((4 * width) / 10, (height / 2), (4 * width) / 10, (height / 2) + 40);
-        // ui.line((6 * width) / 10, (height / 2), (6 * width) / 10, (height / 2) + 40);
-
         //Standens
         ui.strokeWeight(8);
         ui.line((1 * width) / 10 + 8, 0, ((4 * width) / 10) + 4, (height / 2));
         ui.line((9 * width) / 10 - 8, 0, ((6 * width) / 10) - 4, (height / 2));
+        ui.line(0, (ui.height/2)+20, ui.width, (ui.height/2)+20);
 
-        //Centre of cockpit
-        // ui.strokeWeight(1);
-        // ui.line(((4 * width) / 10) + 8, (height / 2), (width / 2) - 20, (height / 2) + 10);
-        // ui.line(((6 * width) / 10) - 8, (height / 2), (width / 2) + 20, (height / 2) + 10);
-        
+        //Guns
+        ui.strokeWeight(30);
+        ui.line(0, 0, 100, 100);
+        ui.line(ui.width, 0, ui.width - 100, 100);
+
+        ui.stroke(255, 255, 0);
+        ui.line(94, 94, 100, 100);
+        ui.line(ui.width - 97, 97, ui.width - 100, 100);
+
+
         ui.strokeWeight(1);
         ui.line((width / 2) - 20, (height / 2) + 10, (width / 2) + 20, (height / 2) + 10);
 

@@ -1,13 +1,10 @@
 package ie.tudublin;
 
-import processing.core.PApplet;
-import processing.core.PVector; 
-
 public class SpeedMeter extends Meter
 {
     public SpeedMeter(UI ui, float x, float y, float diameter)
     {
-        super(ui, x, y, 100);
+        super(ui, x, y, diameter);
     }
     public void update()
     {
@@ -23,7 +20,7 @@ public class SpeedMeter extends Meter
 
         if (rotation < 3.14f)
         {
-            if (ui.checkKey('w'))
+            if (ui.checkKey(' '))
             {
                 rotation += 0.07f;  
             }
