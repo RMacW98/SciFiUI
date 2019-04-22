@@ -68,7 +68,7 @@ public class UI extends PApplet
         audio = new AudioPad(this, (6 * width) / 20 , (15 * height) / 20, FRAME_SIZE, SAMPLE_RATE, RESOLUTION, FRAME_SIZE);
         cp = new CockPit(this, width, height);
         ts = new TargetSystem(this, meterDiameter, 10);
-        l = new Lever(this, 100, 100, 20);
+        l = new Lever(this, (12 * width) / 20 , (13 * height) / 20, 20);
 
         for (int i = 0; i < stars.length; i++) 
         {
@@ -87,7 +87,6 @@ public class UI extends PApplet
     {
         float mx = mouseX - (width / 2);
         float my = mouseY - (height / 2);
-        clicked = -1
 
         if(checkKey(' '))
         {
@@ -120,12 +119,9 @@ public class UI extends PApplet
                     {
                         planets.remove(i);
                         score = score + 1;
-                        clicked = 1;
                     }
                     
                 } 
-                System.out.println(mx);
-                System.out.println(my);
                 popMatrix();
             }
         }

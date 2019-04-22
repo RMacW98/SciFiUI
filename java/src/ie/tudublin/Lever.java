@@ -26,22 +26,22 @@ public class Lever
         ui.line(x, original + 15, x, original - 15);
 
         ui.noStroke();
-        ui.fill(0, 0, 155);
+        ui.fill(255);
         ui.strokeWeight(1);
         ui.ellipse(x, y, diameter, diameter);
     }
 
     public void update()
     {
-        if(ui.checkKey('w'))
+        if(ui.checkKey('w') && y > original - 15)
         {
             y = y - 2;
-        } else if (ui.checkKey('s'))
+        } else if (ui.checkKey('s') && y < original + 15)
         {
             y = y + 2;
         }
 
-        if(y > original)
+        if(y > original )
         {
             y--;
         } else if (y < original)

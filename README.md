@@ -1,16 +1,30 @@
 # SciFi UI Project
 
-Name:
+Name: Ross MacWilliam
 
-Student Number: 
-
-Fork this repository and use it a starter project for your assignment
+Student Number: C17407712
 
 # Description of the assignment
 
+My interface is the cockpit of a Space Aircraft moving through a starfield along with planets.
+
+There are laser shooters at either side of the screen that shoot lasers into the field and take out the planets.
+
 # Instructions
+The controls are as follows:
+
+The buttons 'W', 'S', 'A' and 'D' will move the ship around the space field.
+
+Space Bar will speed up the ship
+
+Pressing the mouse will shoot lasers from the canons
+
+Also there is an AudioPad on the cockpit that will pick up sounds from the microphone.
+
 
 # How it works
+Stars and planets will continuously come towards the user as they traverse the starfield. 
+It is the job of the user to take out as much as the planets as possible to accumulate the highest score.
 
 # What I am most proud of in the assignment
 
