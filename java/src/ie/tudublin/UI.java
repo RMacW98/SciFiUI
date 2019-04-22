@@ -19,7 +19,6 @@ public class UI extends PApplet
     TargetSystem ts;
     Lever l;
 
-    public int clicked;
     public int score = 0;
     public float speed;
     public int SAMPLE_RATE = 44100;
@@ -97,6 +96,7 @@ public class UI extends PApplet
         } else {
             if(mouseY < height / 2)
             {
+                strokeWeight(8);
                 stroke(255, 0, 0);
                 line(mouseX, mouseY, 100, 100);
                 line(mouseX, mouseY, width - 100, 100);
