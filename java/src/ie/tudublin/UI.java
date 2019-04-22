@@ -17,13 +17,14 @@ public class UI extends PApplet
     CockPit cp;
     AudioPad audio;
     TargetSystem ts;
+    Lever l;
 
     public int clicked;
-    public int score;
+    public int score = 0;
     public float speed;
     public int SAMPLE_RATE = 44100;
     public int RESOLUTION = 16;
-    public int FRAME_SIZE = (int) 1.8 * width;
+    public int FRAME_SIZE = (int) 150;
     
     public float meterDiameter = (float) 0.625 * width;
     public float wheelDiameter = (float) 1.2 * width;
@@ -62,11 +63,12 @@ public class UI extends PApplet
         meters.add(new RevMeter(this, (11 * width) / 20, (6 * height) / 10, meterDiameter));
 
         sw = new SteeringWheel(this, width / 2, (2 * height) / 3, wheelDiameter);
-        ap = new AlienPad(this, (12 * width) / 20 , (14 * height) / 20, FRAME_SIZE, FRAME_SIZE);
-        s = new Static(this, (12 * width) / 20 , (14 * height) / 20, FRAME_SIZE, FRAME_SIZE);
-        audio = new AudioPad(this, (7 * width) / 20 , (14 * height) / 20, FRAME_SIZE, SAMPLE_RATE, RESOLUTION, FRAME_SIZE);
+        ap = new AlienPad(this, (12 * width) / 20 , (15 * height) / 20, FRAME_SIZE, FRAME_SIZE);
+        s = new Static(this, (12 * width) / 20 , (15 * height) / 20, FRAME_SIZE, FRAME_SIZE);
+        audio = new AudioPad(this, (6 * width) / 20 , (15 * height) / 20, FRAME_SIZE, SAMPLE_RATE, RESOLUTION, FRAME_SIZE);
         cp = new CockPit(this, width, height);
         ts = new TargetSystem(this, meterDiameter, 10);
+        l = new Lever(this, 100, 100, 20);
 
         for (int i = 0; i < stars.length; i++) 
         {
@@ -81,36 +83,51 @@ public class UI extends PApplet
         }
     }
 
-    public void mouseClicked()
+    public void mousePressed()
     {
-        clicked = -1;
-        score = 0;
+        float mx = mouseX - (width / 2);
+        float my = mouseY - (height / 2);
+        clicked = -1
 
-        if(mouseY < height / 2)
+        if(checkKey(' '))
         {
-            stroke(255, 0, 0);
-            line(mouseX, mouseY, 100, 100);
-            line(mouseX, mouseY, width - 100, 100);
-
-            stroke(255, 255, 0);
-            line(mouseX, mouseY + 8, 100, 108);
-            line(mouseX, mouseY - 8, 100, 92);
-
-            line(mouseX, mouseY + 8, width - 100, 108);
-            line(mouseX, mouseY - 8, width - 100, 92);
-
-            for(int i = 0 ; i < planets.size() ; i ++)
+            fill(155, 0, 0);
+            textSize(30);
+            textAlign(CENTER);
+            text("Cannot Fire!", width / 2, height / 2);
+        } else {
+            if(mouseY < height / 2)
             {
-                Planet p = planets.get(i);
+                stroke(255, 0, 0);
+                line(mouseX, mouseY, 100, 100);
+                line(mouseX, mouseY, width - 100, 100);
+
+                stroke(255, 255, 0);
+                line(mouseX, mouseY + 8, 100, 108);
+                line(mouseX, mouseY - 8, 100, 92);
+
+                line(mouseX, mouseY + 8, width - 100, 108);
+                line(mouseX, mouseY - 8, width - 100, 92);
+                noStroke();
+
                 pushMatrix();
                 translate(width/2, height/2);
-                if(dist(p.sx, p.sy, mouseX, mouseY) <=  p.r * 10)
+                for(int i = 0 ; i < planets.size() ; i ++)
                 {
-                    planets.remove(i);
-                    score = score + 1;
-                }
+                    Planet p = planets.get(i);
+                    
+                    if(dist(p.sx, p.sy, mx, my) <=  p.r)
+                    {
+                        planets.remove(i);
+                        score = score + 1;
+                        clicked = 1;
+                    }
+                    
+                } 
+                System.out.println(mx);
+                System.out.println(my);
                 popMatrix();
-            }   
+            }
         }
         
     }
@@ -118,7 +135,6 @@ public class UI extends PApplet
     public void draw()
     {
         background(0);
-        System.out.println(planets.size());
     
         //Render the stars first
         pushMatrix();
@@ -137,6 +153,7 @@ public class UI extends PApplet
             p.show();
         }  
         popMatrix();
+        
 
         if (mouseY < (height / 2) + 10)
         {
@@ -155,11 +172,14 @@ public class UI extends PApplet
             m.update();
         }  
 
-        ap.render();
-        ap.update();
-
-        s.render();
-        s.update();
+        if (checkKey(' '))
+        {
+            s.render();
+            s.update();
+        } else {
+            ap.render();
+            ap.update();
+        }
 
         audio.render();
         audio.update();    
@@ -167,7 +187,11 @@ public class UI extends PApplet
         sw.render();
         sw.update();
 
+        l.render();
+        l.update();
+
         textSize(20);
+        stroke(255);
         //textFont(Verdana);
         text("Score: " + score, width / 2, height - 20);
         

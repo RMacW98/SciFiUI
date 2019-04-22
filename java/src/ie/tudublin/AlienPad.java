@@ -8,6 +8,8 @@ public class AlienPad
     private float y;
     private float width;
     private float height;
+    private float tx;
+    private float ty;
 
     public AlienPad(UI ui, float x, float y, float width, float height)
     {
@@ -20,7 +22,7 @@ public class AlienPad
 
     public void render()
     {
-        ui.noFill();
+        ui.fill(0);
         ui.stroke(255);
         ui.noStroke();
         ui.rect(x, y, width, height);
@@ -28,27 +30,24 @@ public class AlienPad
 
     public void update()
     {
-        int numSquares = 35;
-        float spacing = width / numSquares;
-        float tempX = x;
-        float tempY = y;
+        float mx = ui.mouseX;
+        float my = ui.mouseY;
 
-		for(int i = 0; i < numSquares; i++)
-		{
-			for(int j = 0; j < numSquares; j++)
-			{
-                ui.noStroke();
-				ui.fill(ui.random(255));
-				ui.rect(x, y, spacing, spacing);
-				y = y + spacing;
-			}
-			
-			x = x + spacing;
-			y = tempY;
+        tx = ui.map(mx, 0, ui.width, x + 5, x + width - 5);
+        ty = ui.map(my, 0, ui.height/2, y + 5, y + height - 5);
+
+        
+        if(ui.mouseY < height*2.4)
+        {
+            ui.noFill();
+            ui.stroke(255, 0, 0);
+            ui.circle(tx, ty, 10);
+            ui.circle(tx, ty, 20);
+            ui.line(tx + 5, ty, tx - 5, ty);
+            ui.line(tx, ty + 5, tx, ty - 5);
+            ui.noStroke();
         }
-
-        x = tempX;
-        y = tempY;
+        
 
     }
 }

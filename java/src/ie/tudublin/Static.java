@@ -8,8 +8,6 @@ public class Static
     private float y;
     private float width;
     private float height;
-    private float tx;
-    private float ty;
 
     public Static(UI ui, float x, float y, float width, float height)
     {
@@ -22,27 +20,35 @@ public class Static
 
     public void render()
     {
-        ui.pushMatrix();
-        ui.translate(x, y);
-        ui.fill(0);
+        ui.noFill();
         ui.stroke(255);
         ui.noStroke();
         ui.rect(x, y, width, height);
-        ui.popMatrix();
     }
 
     public void update()
     {
-        tx = ui.map(ui.mouseX, 0, ui.width, x, width);
-        ty = ui.map(ui.mouseY, y, height, 0, ui.height);
+        int numSquares = 35;
+        float spacing = width / numSquares;
+        float tempX = x;
+        float tempY = y;
 
-        ui.noFill();
-        ui.stroke(255);
-        ui.circle(tx, ty, 10);
-        ui.circle(tx, ty, 20);
-        ui.line(tx + 5, 0, tx - 5, 0);
-        ui.line(0, ty + 5, 0, ty - 5);
-        ui.noStroke();
+		for(int i = 0; i < numSquares; i++)
+		{
+			for(int j = 0; j < numSquares; j++)
+			{
+                ui.noStroke();
+				ui.fill(ui.random(255));
+				ui.rect(x, y, spacing, spacing);
+				y = y + spacing;
+			}
+			
+			x = x + spacing;
+			y = tempY;
+        }
+
+        x = tempX;
+        y = tempY;
 
     }
 }

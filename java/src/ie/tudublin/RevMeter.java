@@ -9,7 +9,6 @@ public class RevMeter extends Meter
 
     public void update()
     {
-
         forward.x = (float) Math.sin(rotation);
         forward.y = - (float) Math.cos(rotation);
 
@@ -26,8 +25,9 @@ public class RevMeter extends Meter
             } 
             if (rotation > 2.49f)
             {
-                rotation = 0.45f;
+                rotation = .5f;
             }
+            
         }
     }
 }

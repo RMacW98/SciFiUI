@@ -11,6 +11,7 @@ public class SteeringWheel
     public PVector pos;
     public PVector forward;
     public float rotation;
+    private float original;
 
     public SteeringWheel(UI ui, float x, float y, float diameter)
     {
@@ -20,11 +21,13 @@ public class SteeringWheel
         pos = new PVector(x, y);
         forward = new PVector(0, -1);
         this.diameter = diameter;
+        original = pos.y;
     }
 
     public void render()
     {
-        float radius = (diameter / 2) + 10;
+        float radius = (diameter / 2) + 20;
+
         ui.pushMatrix();
         ui.translate(pos.x, pos.y);
         ui.rotate(rotation);
@@ -44,8 +47,6 @@ public class SteeringWheel
 
     public void update()
     {
-        
-
         forward.x = (float) Math.sin(rotation);
         forward.y = - (float) Math.cos(rotation);
 
