@@ -86,7 +86,7 @@ This is a [hyperlink](http://bryanduggan.org)
 # User Interface ScreenShot
 This is a picture of an image that I based my user interface off.
 
-![An image](images/SciFi Cockpit.jpg)
+![An image](images/SciFiCockpit.PNG)
 
 This is an image of the interface I have designed for my Assignment.
 ![An image](images/Interface.PNG)
