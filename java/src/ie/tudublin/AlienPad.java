@@ -50,4 +50,102 @@ public class AlienPad
         
 
     }
+
+    /**
+     * @return the ui
+     */
+    public UI getUi() {
+        return ui;
+    }
+
+    /**
+     * @param ui the ui to set
+     */
+    public void setUi(UI ui) {
+        this.ui = ui;
+    }
+
+    /**
+     * @return the x
+     */
+    public float getX() {
+        return x;
+    }
+
+    /**
+     * @param x the x to set
+     */
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    /**
+     * @return the y
+     */
+    public float getY() {
+        return y;
+    }
+
+    /**
+     * @param y the y to set
+     */
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    /**
+     * @return the width
+     */
+    public float getWidth() {
+        return width;
+    }
+
+    /**
+     * @param width the width to set
+     */
+    public void setWidth(float width) {
+        this.width = width;
+    }
+
+    /**
+     * @return the height
+     */
+    public float getHeight() {
+        return height;
+    }
+
+    /**
+     * @param height the height to set
+     */
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    /**
+     * @return the tx
+     */
+    public float getTx() {
+        return tx;
+    }
+
+    /**
+     * @param tx the tx to set
+     */
+    public void setTx(float tx) {
+        this.tx = tx;
+    }
+
+    /**
+     * @return the ty
+     */
+    public float getTy() {
+        return ty;
+    }
+
+    /**
+     * @param ty the ty to set
+     */
+    public void setTy(float ty) {
+        this.ty = ty;
+    }
 }

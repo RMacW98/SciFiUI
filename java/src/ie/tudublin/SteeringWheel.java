@@ -11,8 +11,7 @@ public class SteeringWheel
     public PVector pos;
     public PVector forward;
     public float rotation;
-    private float original;
-
+    
     public SteeringWheel(UI ui, float x, float y, float diameter)
     {
         this.ui = ui;
@@ -21,13 +20,13 @@ public class SteeringWheel
         pos = new PVector(x, y);
         forward = new PVector(0, -1);
         this.diameter = diameter;
-        original = pos.y;
     }
 
     public void render()
     {
         float radius = (diameter / 2) + 20;
 
+        //Rotate and draw Steering Wheel
         ui.pushMatrix();
         ui.translate(pos.x, pos.y);
         ui.rotate(rotation);
@@ -50,7 +49,7 @@ public class SteeringWheel
         forward.x = (float) Math.sin(rotation);
         forward.y = - (float) Math.cos(rotation);
 
-        // If statement to check if wheel rotates more than twice
+        // If statement to check if wheel rotates too much
         if (rotation < 1f && rotation > -1f)
         {
             //Centre steering wheel
@@ -75,7 +74,7 @@ public class SteeringWheel
                 rotation += 0.11f;  
             } 
         }
-        else if (rotation >= 1f)  //Stop steering whell frome moving
+        else if (rotation >= 1f)    //Code to stop steering wheel from glitching
         {
             rotation = 1f;
             if (!ui.checkKey('d'))
@@ -89,5 +88,103 @@ public class SteeringWheel
                 rotation += 0.04f;
             } 
         }
+    }
+
+    /**
+     * @return the ui
+     */
+    public UI getUi() {
+        return ui;
+    }
+
+    /**
+     * @param ui the ui to set
+     */
+    public void setUi(UI ui) {
+        this.ui = ui;
+    }
+
+    /**
+     * @return the x
+     */
+    public float getX() {
+        return x;
+    }
+
+    /**
+     * @param x the x to set
+     */
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    /**
+     * @return the y
+     */
+    public float getY() {
+        return y;
+    }
+
+    /**
+     * @param y the y to set
+     */
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    /**
+     * @return the diameter
+     */
+    public float getDiameter() {
+        return diameter;
+    }
+
+    /**
+     * @param diameter the diameter to set
+     */
+    public void setDiameter(float diameter) {
+        this.diameter = diameter;
+    }
+
+    /**
+     * @return the pos
+     */
+    public PVector getPos() {
+        return pos;
+    }
+
+    /**
+     * @param pos the pos to set
+     */
+    public void setPos(PVector pos) {
+        this.pos = pos;
+    }
+
+    /**
+     * @return the forward
+     */
+    public PVector getForward() {
+        return forward;
+    }
+
+    /**
+     * @param forward the forward to set
+     */
+    public void setForward(PVector forward) {
+        this.forward = forward;
+    }
+
+    /**
+     * @return the rotation
+     */
+    public float getRotation() {
+        return rotation;
+    }
+
+    /**
+     * @param rotation the rotation to set
+     */
+    public void setRotation(float rotation) {
+        this.rotation = rotation;
     }
 }

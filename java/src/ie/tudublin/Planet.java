@@ -77,4 +77,116 @@ public abstract class Planet
         } 
         // ui.popMatrix();
     }
+
+    /**
+     * @return the x
+     */
+    public float getX() {
+        return x;
+    }
+
+    /**
+     * @param x the x to set
+     */
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    /**
+     * @return the y
+     */
+    public float getY() {
+        return y;
+    }
+
+    /**
+     * @param y the y to set
+     */
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    /**
+     * @return the sx
+     */
+    public float getSx() {
+        return sx;
+    }
+
+    /**
+     * @param sx the sx to set
+     */
+    public void setSx(float sx) {
+        this.sx = sx;
+    }
+
+    /**
+     * @return the sy
+     */
+    public float getSy() {
+        return sy;
+    }
+
+    /**
+     * @param sy the sy to set
+     */
+    public void setSy(float sy) {
+        this.sy = sy;
+    }
+
+    /**
+     * @return the z
+     */
+    public float getZ() {
+        return z;
+    }
+
+    /**
+     * @param z the z to set
+     */
+    public void setZ(float z) {
+        this.z = z;
+    }
+
+    /**
+     * @return the r
+     */
+    public float getR() {
+        return r;
+    }
+
+    /**
+     * @param r the r to set
+     */
+    public void setR(float r) {
+        this.r = r;
+    }
+
+    /**
+     * @return the speed
+     */
+    public float getSpeed() {
+        return speed;
+    }
+
+    /**
+     * @param speed the speed to set
+     */
+    public void setSpeed(float speed) {
+        this.speed = speed;
+    }
+
+    /**
+     * @return the ui
+     */
+    public UI getUi() {
+        return ui;
+    }
+
+    /**
+     * @param ui the ui to set
+     */
+    public void setUi(UI ui) {
+        this.ui = ui;
+    }
 }

@@ -86,10 +86,12 @@ public class UI extends PApplet
 
     public void mousePressed()
     {
+        //Mouse doesn't translate so this translates it for it
         float mx = mouseX - (width / 2);
         float my = mouseY - (height / 2);
 
-        if(checkKey(' '))
+        //Checks that the user is firing at correct place and time
+        if(checkKey(' ') || mouseY > height / 2)
         {
             fill(155, 0, 0);
             textSize(30);
@@ -98,6 +100,7 @@ public class UI extends PApplet
         } else {
             if(mouseY < height / 2)
             {
+                //Draws lasers
                 strokeWeight(8);
                 stroke(255, 0, 0);
                 line(mouseX, mouseY, 100, 100);
@@ -111,13 +114,14 @@ public class UI extends PApplet
                 line(mouseX, mouseY - 8, width - 100, 92);
                 noStroke();
 
+                //Removes planets from ArrayList if clicked
                 pushMatrix();
                 translate(width/2, height/2);
                 for(int i = 0 ; i < planets.size() ; i ++)
                 {
                     Planet p = planets.get(i);
                     
-                    if(dist(p.sx, p.sy, mx, my) <=  p.r)
+                    if(dist(p.getSx(), p.getSy(), mx, my) <=  p.getR())
                     {
                         planets.remove(i);
                         score = score + 1;
@@ -134,7 +138,7 @@ public class UI extends PApplet
     {
         background(0);
 
-        //Play Music
+        //Plays Music
         if(background.position() == background.length())
         {
             background.rewind();
@@ -145,7 +149,7 @@ public class UI extends PApplet
             background.play();
         }
    
-        //Render the stars first
+        //Render the stars and planets first
         pushMatrix();
         speed = map(50, 0, width, 0, 50); 
         translate(width/2, height/2);
@@ -164,6 +168,7 @@ public class UI extends PApplet
         popMatrix();
         
 
+        //Renders the Target
         if (mouseY < (height / 2) + 10)
         {
             ts.render();
@@ -181,6 +186,7 @@ public class UI extends PApplet
             m.update();
         }  
 
+        //AlienPad goes static whenin hyperspeed
         if (checkKey(' '))
         {
             s.render();
@@ -199,18 +205,18 @@ public class UI extends PApplet
         l.render();
         l.update();
 
+        //Score at bottom of screen
         textSize(20);
         stroke(255);
-        //textFont(Verdana);
         text("Score: " + score, width / 2, height - 20);
         
 
+        //As planets are removed from Arrayist they are added back in
         if (planets.size() < 27)
         {
             planets.add(new GreenPlanet(this));
             planets.add(new BluePlanet(this));
             planets.add(new RedPlanet(this));
-
         }
     }
 }

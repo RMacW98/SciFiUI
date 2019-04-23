@@ -7,7 +7,6 @@ public class AudioPad
 {
     private float x;
     private float y;
-    private float width;
     private float height;
     public static int SAMPLE_RATE;
     public static int RESOLUTION;
@@ -46,5 +45,89 @@ public class AudioPad
         {
             ui.line(i, halfH, i, halfH + ui.ai.left.get(i - (int) x) * halfH * 4);
         }
+    }
+
+    /**
+     * @return the x
+     */
+    public float getX() {
+        return x;
+    }
+
+    /**
+     * @param x the x to set
+     */
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    /**
+     * @return the y
+     */
+    public float getY() {
+        return y;
+    }
+
+    /**
+     * @param y the y to set
+     */
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    /**
+     * @return the height
+     */
+    public float getHeight() {
+        return height;
+    }
+
+    /**
+     * @param height the height to set
+     */
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    /**
+     * @return the minim
+     */
+    public Minim getMinim() {
+        return minim;
+    }
+
+    /**
+     * @param minim the minim to set
+     */
+    public void setMinim(Minim minim) {
+        this.minim = minim;
+    }
+
+    /**
+     * @return the ai
+     */
+    public AudioInput getAi() {
+        return ai;
+    }
+
+    /**
+     * @param ai the ai to set
+     */
+    public void setAi(AudioInput ai) {
+        this.ai = ai;
+    }
+
+    /**
+     * @return the ui
+     */
+    public UI getUi() {
+        return ui;
+    }
+
+    /**
+     * @param ui the ui to set
+     */
+    public void setUi(UI ui) {
+        this.ui = ui;
     }
 }
