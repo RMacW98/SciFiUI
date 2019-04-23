@@ -27,6 +27,45 @@ Stars and planets will continuously come towards the user as they traverse the s
 It is the job of the user to take out as much as the planets as possible to accumulate the highest score.
 
 # What I am most proud of in the assignment
+I am most proud of the removal of planets from the screen as it was the code I had the hardest time with.
+Although the code for it was very straight forward I had difficulty trying to work out why the dist() would 
+not work correctly for me. After a lot of trouble shooting I worked out it was the translation that was my issue.
+
+When I translated the planets using the dist() function it wasn't working properly and I worked out that mouseX and mouseY
+don't get translated so I needed to make my own variables that translated them for me
+
+```Java
+float mx = mouseX - (width / 2);
+float my = mouseY - (height / 2);
+```
+
+This allowed my mouse to be at the same position as the planets when clicking on the screen to remove them
+
+
+```Java
+public void mousePressed()
+{
+    //Mouse doesn't translate so this translates it for it
+    float mx = mouseX - (width / 2);
+	float my = mouseY - (height / 2);
+	
+    //Removes planets from ArrayList if clicked
+    pushMatrix();
+    translate(width/2, height/2);
+    for(int i = 0 ; i < planets.size() ; i ++)
+    {
+        Planet p = planets.get(i);
+                    
+        if(dist(p.getSx(), p.getSy(), mx, my) <=  p.getR())
+        {
+            planets.remove(i);
+            score = score + 1;
+        }            
+    } 
+    popMatrix();    
+}
+```
+
 
 # Markdown Tutorial
 
@@ -76,8 +115,9 @@ public void render()
 ```
 
 This is an image using a relative URL:
+This is an image of the interface I have designed for my Assignment.
 
-![An image](images/p8.png)
+![An image](images/Interface.PNG)
 
 This is an image using an absolute URL:
 
