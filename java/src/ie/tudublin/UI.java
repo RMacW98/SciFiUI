@@ -3,7 +3,7 @@ package ie.tudublin;
 import processing.core.PApplet;
 import java.util.ArrayList;
 import ddf.minim.AudioInput;
-import ddf.minim.Minim;
+import ddf.minim.*;
 
 public class UI extends PApplet
 {
@@ -30,6 +30,7 @@ public class UI extends PApplet
 
     Minim minim;
     AudioInput ai;
+    AudioPlayer background;
 
     boolean[] keys = new boolean[1024];
 
@@ -54,6 +55,7 @@ public class UI extends PApplet
         fullScreen();
         minim = new Minim(this);
         ai = minim.getLineIn(Minim.MONO, FRAME_SIZE, SAMPLE_RATE, RESOLUTION);
+        background = minim.loadFile("SpaceMusic.mp3");
     }
 
     public void setup()
@@ -131,7 +133,18 @@ public class UI extends PApplet
     public void draw()
     {
         background(0);
-    
+
+        //Play Music
+        if(background.position() == background.length())
+        {
+            background.rewind();
+            background.play();
+        }
+        else
+        {
+            background.play();
+        }
+   
         //Render the stars first
         pushMatrix();
         speed = map(50, 0, width, 0, 50); 
