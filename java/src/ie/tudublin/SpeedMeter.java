@@ -13,6 +13,7 @@ public class SpeedMeter extends Meter
         forward.x = (float) Math.sin(rotation);
         forward.y = - (float) Math.cos(rotation);
 
+        //Checks key to rotate the speedometer
         if(rotation > 0)
         {
             rotation -= 0.05f;

@@ -22,8 +22,6 @@ public abstract class Planet
 
     public void update() 
     {
-        // ui.pushMatrix();
-        // ui.translate(ui.width/2, ui.height/2);
         z = z - (float) (ui.speed * .5);
 
         if (z < 1) {
@@ -41,8 +39,6 @@ public abstract class Planet
 
     public void show() 
     {
-        // ui.pushMatrix();
-        // ui.translate(ui.width/2, ui.height/2);
         ui.noStroke();
 
         sx = ui.map(x / z, 0, 1, 0, ui.width/2);
@@ -75,7 +71,6 @@ public abstract class Planet
         {
             ui.speed = ui.speed * 1.001f;
         } 
-        // ui.popMatrix();
     }
 
     /**

@@ -12,6 +12,7 @@ public class RevMeter extends Meter
         forward.x = (float) Math.sin(rotation);
         forward.y = - (float) Math.cos(rotation);
 
+        //Rotates the Revometer when spacebar pressed
         if(rotation > -0.5f) 
         {
             rotation -= 0.05f;
