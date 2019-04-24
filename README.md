@@ -27,7 +27,7 @@ Stars and planets will continuously come towards the user as they traverse the s
 It is the job of the user to take out as much as the planets as possible to accumulate the highest score.
 
 # What I am most proud of in the assignment
-I am most proud of the removal of planets from the screen as it was the code I had the hardest time with.
+I am most proud of the removal of planets from the screen as it was the code I that I had to work the hardest on.
 Although the code for it was very straight forward I had difficulty trying to work out why the dist() would 
 not work correctly for me. After a lot of trouble shooting I worked out it was the translation that was my issue.
 
@@ -66,23 +66,6 @@ public void mousePressed()
 }
 ```
 
-
-# Markdown Tutorial
-
-This is *emphasis*
-
-This is a bulleted list
-
-- Item
-- Item
-
-This is a numbered list
-
-1. Item
-1. Item
-
-This is a [hyperlink](http://bryanduggan.org)
-
 # User Interface ScreenShot
 This is a picture of an image that I based my user interface off.
 
@@ -92,15 +75,9 @@ This is an image of the interface I have designed for my Assignment.
 ![An image](images/Interface.PNG)
 
 
+This is a youtube video of my assignment:
 
-
-This is an image using an absolute URL:
-
-![A different image](https://bryanduggandotorg.files.wordpress.com/2019/02/infinite-forms-00045.png?w=595&h=&zoom=2)
-
-This is a youtube video:
-
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](images/Interface.PNG)](https://youtu.be/w019-oiwG_c)
 
 | Java File | Description |
 |-----------|-----------|
