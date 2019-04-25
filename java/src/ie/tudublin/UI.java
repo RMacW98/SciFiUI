@@ -31,6 +31,7 @@ public class UI extends PApplet
     Minim minim;
     AudioInput ai;
     AudioPlayer background;
+    AudioPlayer pew;
 
     boolean[] keys = new boolean[1024];
 
@@ -56,6 +57,7 @@ public class UI extends PApplet
         minim = new Minim(this);
         ai = minim.getLineIn(Minim.MONO, FRAME_SIZE, SAMPLE_RATE, RESOLUTION);
         background = minim.loadFile("SpaceMusic.mp3");
+        pew = minim.loadFile("CatGun.wav");
     }
 
     public void setup()
@@ -100,6 +102,16 @@ public class UI extends PApplet
         } else {
             if(mouseY < height / 2)
             {
+                if(pew.position() == pew.length())
+                {
+                    pew.rewind();
+                    pew.play();
+                }
+                else
+                {
+                    pew.play();
+                }
+
                 //Draws lasers
                 strokeWeight(8);
                 stroke(255, 0, 0);
@@ -139,14 +151,11 @@ public class UI extends PApplet
         background(0);
 
         //Plays Music
-        if(background.position() == background.length())
+        background.play();
+
+        if (background.length() == background.position())
         {
             background.rewind();
-            background.play();
-        }
-        else
-        {
-            background.play();
         }
    
         //Render the stars and planets first
