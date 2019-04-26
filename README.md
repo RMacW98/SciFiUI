@@ -68,6 +68,23 @@ Also there is an AudioPad on the cockpit that will pick up sounds from the micro
 Stars and planets will continuously come towards the user as they traverse the starfield. 
 It is the job of the user to take out as much as the planets as possible to accumulate the highest score.
 
+| Java File | Description |
+|-----------|-----------|
+|AlienPad | This file displays the mini targeting system on the cockpit. It tracks the mouse and maps it to the rectangle |
+|AudioPad | It takes in the audio from the mic on the laptop and displays it as audio waves. |
+|CockPit | This file draws the cockpit of the ship |
+|Lever | This is the code used for the lever of the ship to move the ship up and down through the starfield |
+|Meter | This is an abstract class for the two meter classes. This holds the render function and allows the two meters to rotate. |
+|Planet | This is the file that fills the Planet ArrayList and is an abstarct class for each colour planet. This code is very similar to Stars.java |
+|RevMeter | This is one of the subclasses for Meter and rotates continuously similar to an actual RPM meter  |
+|SpeedMeter | Similar to the RevMeter class, this is also a subclass of Meter and rotates similar to an actual speedometer in a car. |
+|Stars | Like the planet file these are the stars that populate the starfield. I did not use an array list for this however. |
+|Static | This is a square filled with miniture squares inside that changes hues of grey to appear as static while in hyperspeed. |
+|SteeringWheel | SteeringWheel is used to render and update the steering wheel on the cockpit. It rotates left and right as you turn in the starfield. |
+|TargetSystem | The target on the interface is rendered in this class as it follows the mouseX and mouseY coordinates. |
+
+
+
 # What I am most proud of in the assignment
 I am most proud of the removal of planets from the screen as it was the code I that I had to work the hardest on.
 Although the code for it was very straight forward I had difficulty trying to work out why the dist() would 
@@ -117,19 +134,4 @@ This is a picture of an image that I based my user interface off.
 This is a youtube video of my assignment:
 
 [![YouTube](images/Interface.PNG)](https://youtu.be/xd7LGK6fpHY)
-
-| Java File | Description |
-|-----------|-----------|
-|AlienPad | This file displays the mini targeting system on the cockpit. It tracks the mouse and maps it to the rectangle |
-|AudioPad | It takes in the audio from the mic on the laptop and displays it as audio waves. |
-|CockPit | This file draws the cockpit of the ship |
-|Lever | This is the code used for the lever of the ship to move the ship up and down through the starfield |
-|Meter | This is an abstract class for the two meter classes. This holds the render function and allows the two meters to rotate. |
-|Planet | This is the file that fills the Planet ArrayList and is an abstarct class for each colour planet. This code is very similar to Stars.java |
-|RevMeter | This is one of the subclasses for Meter and rotates continuously similar to an actual RPM meter  |
-|SpeedMeter | Similar to the RevMeter class, this is also a subclass of Meter and rotates similar to an actual speedometer in a car. |
-|Stars | Like the planet file these are the stars that populate the starfield. I did not use an array list for this however. |
-|Static | This is a square filled with miniture squares inside that changes hues of grey to appear as static while in hyperspeed. |
-|SteeringWheel | SteeringWheel is used to render and update the steering wheel on the cockpit. It rotates left and right as you turn in the starfield. |
-|TargetSystem | The target on the interface is rendered in this class as it follows the mouseX and mouseY coordinates. |
 
